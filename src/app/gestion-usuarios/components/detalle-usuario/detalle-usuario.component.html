@@ -1,0 +1,41 @@
+<!--<button mat-raised-button color="accent" (click)="volverListado()">Volver al Listado</button>-->
+<div *ngIf="usuario">  
+  <mat-tab-group>
+      <mat-tab label="Datos Personales">
+          <mat-list>
+              <mat-list-item> {{ usuario.name }} </mat-list-item>
+              <mat-list-item> {{ usuario.username }} </mat-list-item>
+              <mat-list-item> {{ usuario.email }} </mat-list-item>
+          </mat-list>
+      </mat-tab>
+      <mat-tab label="Dirección"> 
+        <mat-list>
+            <mat-list-item> {{ usuario.address.street }} </mat-list-item>
+            <mat-list-item> {{ usuario.address.suite }} </mat-list-item>
+            <mat-list-item> {{ usuario.address.city }} </mat-list-item>
+            <mat-list-item> {{ usuario.address.zipcode }} </mat-list-item>
+            <mat-list-item> Localización: {{ usuario.address.geo.lat }}, {{ usuario.address.geo.lng }} </mat-list-item>
+        </mat-list>  
+      </mat-tab>
+      <mat-tab label="Info. Profesional">
+          <mat-list>
+            <mat-list-item> {{ usuario.phone }} </mat-list-item>
+            <mat-list-item> {{ usuario.website }} </mat-list-item>
+            <mat-list-item> {{ usuario.company.name }} </mat-list-item>
+          </mat-list>
+        </mat-tab>
+    </mat-tab-group>
+<div class="example-button-row">  
+  <button mat-raised-button color="warn" (click)="borrarUsuario(usuario.id)">
+      <mat-icon 
+        aria-hidden="false">
+        delete_forever
+      </mat-icon>
+    Eliminar Usuario</button> <br><br>
+  <button mat-stroked-button (click)="volverListado()" color="accent">
+      <mat-icon 
+      aria-hidden="false">
+      navigate_before
+    </mat-icon>Volver al Listado</button>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<!-- <ul>
+<li *ngFor='let usuario of usuarios$ | async'>
+  {{ usuario.name }} <{{ usuario.email | lowercase}}> {{ usuario.address.city }}
+</li>
+</ul> -->
+<mat-list role="list" *ngIf="usuarios$">
+  <mat-list-item 
+    role="listitem" 
+    *ngFor="let usuario of usuarios$ | async">
+    <!--<a routerLink='/usuarios/{{ usuario.id }}'>{{ usuario.name }}</a> <{{ usuario.email | lowercase}}> {{ usuario.address.city }}-->
+    <mat-icon 
+        aria-hidden="false">
+        account_box
+      </mat-icon>
+    <a [routerLink]="['/usuarios',usuario.id]">      
+      {{ usuario.name }}</a> 
+       <{{ usuario.email | lowercase}}> 
+  </mat-list-item>
+</mat-list>
+<!-- <p *ngFor='let usuario of usuarios'>
+  {{ usuario.name }}
+</p> -->
